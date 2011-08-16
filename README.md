@@ -26,7 +26,7 @@ package: php-cli and php <a ref="http://php.net/manual/en/book.image.php">gd</a>
 * Configure insert_text.php : the background image $bgImage and the active image $activeBgImage that will be used
 
 
-* Configure the background image path in change_bg.sh to be same as $activeBgImage in insert_text.php
+* Configure the background image path in change_bg.sh to be same as $activeBgImage in insert_text.php. The following script will use insert_text.php to insert text in todo.txt list to the background image and use gconftool to activate that image as the background 
 
 
     `./change_bg.sh`
