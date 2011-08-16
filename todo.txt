@@ -1,0 +1,4 @@
+Publish ubuntu-desktop-todo-list to git
+Make it configurable (active image, bg image...)
+Earn money
+Lots of other todo list
