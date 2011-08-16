@@ -17,6 +17,9 @@ package: php-cli and php <a ref="http://php.net/manual/en/book.image.php">gd</a>
 
 ### Run
 
+* Edit your todo list in todo.list. Each line is a task
+
+
 * Configure preferred font in insert_text.php
 
 
@@ -24,6 +27,7 @@ package: php-cli and php <a ref="http://php.net/manual/en/book.image.php">gd</a>
 
 
 * Configure the background image path in change_bg.sh to be same as $activeBgImage in insert_text.php
+
 
     `./change_bg.sh`
 
