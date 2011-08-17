@@ -32,17 +32,18 @@ $i = 1; //line number
 $handle = @fopen($file, "r");
 $lineHeight = $fontSize * 2;
 if ($handle) {
-    while (($buffer = fgets($handle, 4096)) !== false) {
+    while (($line = fgets($handle, 4096)) !== false) {
         $y = $y + $lineHeight;
-        if ($buffer != strtoupper($buffer) && trim($buffer) != '') 
+        if ($line != strtoupper($line) && trim($line) != '') 
         {
-            imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile,"#$i. " . $buffer);
+            $tmp = explode('##', $line);
+            imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile,"#$i. " . $tmp[0]);
             $i++;
         }
         else //task group or empty line
         {
-            imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile, $buffer);
-            if (trim($buffer) != '') //if new task group, start a new counter
+            imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile, $line);
+            if (trim($line) != '') //if new task group, start a new counter
                 $i = 1;
         }
     }
