@@ -26,6 +26,7 @@ $fontFile = './fonts/FreeMonoBold.ttf';
 //----------start
 $im = imagecreatefromjpeg ( $bgImage );
 $textColor = imagecolorallocate($im, 0,0,0); //black
+$headingColor = imagecolorallocate($im, 0,255,0); //red bg
 
 $i = 1; //line number
 //write each line 
@@ -33,18 +34,30 @@ $handle = @fopen($file, "r");
 $lineHeight = $fontSize * 2;
 if ($handle) {
     while (($line = fgets($handle, 4096)) !== false) {
-        $y = $y + $lineHeight;
         if ($line != strtoupper($line) && trim($line) != '') 
         {
             $tmp = explode('##', $line);
-            imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile,"#$i. " . $tmp[0]);
-            $i++;
+            $print = $tmp[0];
+            $print = trim($print);
+            if (!empty($print))
+            {
+                $y = $y + $lineHeight;
+                imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile,"#$i. " . $print);
+                $i++;
+            }
         }
         else //task group or empty line
         {
-            imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile, $line);
             if (trim($line) != '') //if new task group, start a new counter
+            {
+                $y = $y + $lineHeight;
+                imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile, ''); //empty line
+                $y = $y + $lineHeight;
+                imagefttext($im, $fontSize, 0, $x, $y, $headingColor, $fontFile, $line);
+                $y = $y + $lineHeight;
+                imagefttext($im, $fontSize, 0, $x, $y, $textColor, $fontFile, ''); //empty line
                 $i = 1;
+            }
         }
     }
     if (!feof($handle)) {
