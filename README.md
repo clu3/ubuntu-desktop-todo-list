@@ -12,7 +12,7 @@ package: php-cli and php <a ref="http://php.net/manual/en/book.image.php">gd</a>
 
 ### Screenshot
 
-<a href='http://www.clu3.com/wp-content/uploads/2011/08/active.jpg'><img src="http://www.clu3.com/wp-content/uploads/2011/08/active-300x225.jpg" width=300></a>
+<a href='http://codersquare.com/todo.jpg'><img src="http://codersquare.com/todo.jpg" width=300></a>
 
 
 ### Configure
